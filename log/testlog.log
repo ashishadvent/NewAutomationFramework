@@ -1,0 +1,5 @@
+2019-07-12 18:15:22,859 - TC001 -INFO - test1 started
+2019-07-12 18:15:22,874 - TC001 -INFO - test2 started
+2019-07-12 18:15:22,876 - TC001 -INFO - test3 started
+2019-07-12 18:29:19,340 - TC001 -INFO - Chrome Driver initialized
+2019-07-12 18:29:25,330 - TC001 -INFO - Browser opened

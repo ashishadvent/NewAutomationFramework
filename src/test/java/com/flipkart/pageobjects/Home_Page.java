@@ -3,6 +3,8 @@ package com.flipkart.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.flipkart.testcases.BaseClass;
+
 //@author- Ashish
 
 public class Home_Page extends BaseClass {
