@@ -13,14 +13,14 @@ import org.testng.annotations.Test;
 //import com.flipkart.pageobjects.Login_Page;
 
 //@author -ashish
-public class TC001 {
+public class TC001 extends BaseClass{
 	
-	public WebDriver driver;
+	//public WebDriver driver;
 	
 	@Test
 	public void setup1() throws InterruptedException {
-		System.setProperty("webdriver.chorme.driver","C:\\Users\\akesarwa\\eclipse-workspace\\NewAutomationSelenium\\chromedriver.exe");
-		   Logger logger=Logger.getLogger("TC001");
+		//System.setProperty("webdriver.chorme.driver",chromeDriverPath);
+		   logger=Logger.getLogger("TC001");
 		   PropertyConfigurator.configure("log4j.properties");
 		   driver=new ChromeDriver();
 		   logger.info("Chrome Driver initialized");

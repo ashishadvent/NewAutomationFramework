@@ -12,6 +12,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.flipkart.utilities.ReadConfig;
 
@@ -38,7 +39,7 @@ public class BaseClass {
    @BeforeClass 
    public void setUp(String br) {
 	    logger=Logger.getLogger("BaseClass");
-	    PropertyConfigurator.configure("Log4j.properties");
+	    PropertyConfigurator.configure("log4j.properties");
 	   
 	   if (br.toLowerCase().equals("chrome")) {
 		   System.setProperty("webdriver.chorme.driver",config.getchromeDriverPath());
@@ -57,6 +58,10 @@ public class BaseClass {
 		   driver=new InternetExplorerDriver();
 	   }
 	   
+   }
+   @Test
+    public void test1() {
+	   System.out.println("first test cases");
    }
    @AfterClass
    public void tearDown() {

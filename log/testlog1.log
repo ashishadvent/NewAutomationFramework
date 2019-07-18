@@ -3,3 +3,5 @@
 2019-07-12 18:15:22,876 [main] INFO TC001 - test3 started
 2019-07-12 18:29:19,340 [main] INFO TC001 - Chrome Driver initialized
 2019-07-12 18:29:25,330 [main] INFO TC001 - Browser opened
+2019-07-18 11:40:08,204 [main] INFO BaseClass - Chrome Browser is selected for test execution
+2019-07-18 11:43:36,366 [main] INFO BaseClass - Chrome Browser is selected for test execution

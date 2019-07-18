@@ -3,8 +3,12 @@
  */
 package com.flipkart.utilities;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -13,16 +17,26 @@ import java.util.Properties;
  */
 public class ReadConfig {
 	
-    Properties property;
-   public ReadConfig(){
-    try {
-    	File file=new File("./Configuration/config.properties");
-    	FileInputStream inStream=new FileInputStream(file);
-    	property.load(inStream);
-    }catch(Exception e) {
-    	e.getStackTrace();
-    }
-   }
+	private Properties property;
+	private final String propertyFilePath= "Configuration//config.properties";
+
+	
+	public ReadConfig(){
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(propertyFilePath));
+			property = new Properties();
+			try {
+				property.load(reader);
+				reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
+		}		
+	}
     public String getApplicationURL() {
     	String url= property.getProperty("testURL");
 		return url;

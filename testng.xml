@@ -5,7 +5,9 @@
    <parameter name="browser" value="chrome"/>
     <classes>
       
-      <class name="com.flipkart.testcases.TC001"/>
+      
+      <class name="com.flipkart.testcases.BaseClass"/>
+      
     </classes>  
   </test> <!-- Test -->
 </suite> <!-- Suite -->
