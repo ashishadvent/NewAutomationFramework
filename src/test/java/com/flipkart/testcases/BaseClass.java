@@ -40,6 +40,17 @@ public class BaseClass {
 	//public String FFDriverPath=config.geckoDriverPath();
 	public String FFDriverPath=System.getProperty("user.dir")+System.getProperty("File.pathSeparator")+config.geckoDriverPath();
 	public static Logger logger;
+	
+	
+	public static Logger getLogger() {
+		
+		return Logger.getLogger(BaseClass.class);
+	}
+	
+	public static Logger getLogger(Class clz) {
+		
+		return Logger.getLogger(clz);
+	}
 	 	                                                     
 	//create public reference variable of WebDriver class
    public static WebDriver driver;	

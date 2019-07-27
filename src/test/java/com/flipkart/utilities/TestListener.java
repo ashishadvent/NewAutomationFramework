@@ -3,20 +3,26 @@
  */
 package com.flipkart.utilities;
 
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import com.flipkart.testcases.BaseClass;
 
 /**
  * @author ashish
  *
  */
-public class TestListener implements ITestListener{
+public class TestListener  extends BaseClass implements ITestListener{
+	
+	//Logger localLogger = BaseClass.getLogger(TestListener.class);
+	Logger localLogger = Logger.getLogger(TestListener.class);
 
 	@Override
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+		localLogger.info("HELLO");
 	}
 
 	@Override
@@ -55,6 +61,8 @@ public class TestListener implements ITestListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 	
 
 }

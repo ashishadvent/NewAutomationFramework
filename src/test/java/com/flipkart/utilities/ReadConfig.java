@@ -13,6 +13,8 @@ import java.util.Properties;
 
 import javax.management.RuntimeErrorException;
 
+import com.flipkart.testcases.BaseClass;
+
 /**
  * @author ashish
  *
@@ -46,6 +48,8 @@ public class ReadConfig {
     	
     }
     public String getUserName() {
+    	//BaseClass.getLogger(ReadConfig.class); // line will throw exception
+    	BaseClass.getLogger();
     	String uname= property.getProperty("userName");
 		return uname;
     	
