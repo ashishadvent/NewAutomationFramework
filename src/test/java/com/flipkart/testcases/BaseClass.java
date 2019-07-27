@@ -3,6 +3,9 @@
  */
 package com.flipkart.testcases;
 
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +13,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -28,23 +35,25 @@ public class BaseClass {
 	public String testURL=config.getApplicationURL();
 	public String userName=config.getUserName();
 	public String password=config.getPassword();
-	public String chromeDriverPath=config.getchromeDriverPath();
-	public String IEDriverPath=config.getIEDriverPath();
-	public String FFDriverPath=config.geckoDriverPath();
+	public String chromeDriverPath=System.getProperty("user.dir")+System.getProperty("File.pathSeparator")+config.getchromeDriverPath();
+	public String IEDriverPath=System.getProperty("user.dir")+System.getProperty("File.pathSeparator")+config.getIEDriverPath();
+	//public String FFDriverPath=config.geckoDriverPath();
+	public String FFDriverPath=System.getProperty("user.dir")+System.getProperty("File.pathSeparator")+config.geckoDriverPath();
 	public static Logger logger;
 	 	                                                     
 	//create public reference variable of WebDriver class
    public static WebDriver driver;	
    @Parameters("browser")
-   @BeforeClass 
+   @BeforeTest 
    public void setUp(String br) {
-	    logger=Logger.getLogger("BaseClass");
+	    logger=Logger.getLogger(BaseClass.class);
 	    PropertyConfigurator.configure("log4j.properties");
 	   
 	   if (br.toLowerCase().equals("chrome")) {
 		   System.setProperty("webdriver.chorme.driver",config.getchromeDriverPath());
 		   logger.info("Chrome Browser is selected for test execution");
 		   driver=new ChromeDriver();
+		   
 	   }
 	   
 	   else if(br.toLowerCase().equals("firefox")) {
@@ -58,12 +67,11 @@ public class BaseClass {
 		   driver=new InternetExplorerDriver();
 	   }
 	   
+	   driver.manage().window().maximize();
+	   driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
    }
-   @Test
-    public void test1() {
-	   System.out.println("first test cases");
-   }
-   @AfterClass
+   
+   @AfterTest
    public void tearDown() {
 	   driver.quit();
    }

@@ -6,7 +6,9 @@
     <classes>
       
       
-      <class name="com.flipkart.testcases.BaseClass"/>
+      
+      <class name="com.flipkart.testcases.TC001"/>
+      
       
     </classes>  
   </test> <!-- Test -->

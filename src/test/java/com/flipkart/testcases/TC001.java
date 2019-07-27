@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.flipkart.pageobjects.Login_Page;
+
 
 
 //import com.flipkart.pageobjects.Login_Page;
@@ -17,7 +19,7 @@ public class TC001 extends BaseClass{
 	
 	//public WebDriver driver;
 	
-	@Test
+	/*@Test
 	public void setup1() throws InterruptedException {
 		//System.setProperty("webdriver.chorme.driver",chromeDriverPath);
 		   logger=Logger.getLogger("TC001");
@@ -29,24 +31,34 @@ public class TC001 extends BaseClass{
 		   wait(1000);
 		   driver.close();
 		   logger.info("Chrome browser closed");
-	}
+	}*/
+	
+	       
 	
 	
-	/*public WebDriver driver1=driver;
 	 
 	@Test
 	
-	public void loginTest() {
-		driver1.get(config.getApplicationURL());
-		Login_Page ln=new Login_Page(driver1);
+	public void loginTest() throws InterruptedException {
+		logger=Logger.getLogger(TC001.class);
+        PropertyConfigurator.configure("log4j.properties");
+		System.out.println("first test cases");
+		//driver1.get(testURL);opensourcecms
+		driver.get("https://www.s1.demo.opensourcecms.com/wordpress/wp-login.php");
+		Login_Page ln=new Login_Page(driver);
 		
-		ln.setUserName(config.getUserName());
+		ln.setUserName("opensourcecms");
 		logger.info("Entered the userName");
-		ln.setPassword(config.getPassword());
+		ln.setPassword("opensourcecms");
 		logger.info("Entered the password");
 		ln.clickSubmit();
-		logger.info("clocked on sign in button");
+		Thread.sleep(10000);
+		logger.info("clicked on sign in button");
 		System.out.println(driver.getTitle());
-	}*/
+	}
+	@Test
+    public void test1() {
+	   System.out.println("Second test cases");
+   } 
 	
 }

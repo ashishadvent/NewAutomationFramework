@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.management.RuntimeErrorException;
+
 /**
  * @author ashish
  *
@@ -39,7 +41,8 @@ public class ReadConfig {
 	}
     public String getApplicationURL() {
     	String url= property.getProperty("testURL");
-		return url;
+		 return url;
+		//else throw new RuntimeErrorException("nv");
     	
     }
     public String getUserName() {
