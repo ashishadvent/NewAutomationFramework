@@ -18,6 +18,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -27,6 +28,7 @@ import com.flipkart.utilities.ReadConfig;
  * @author ashish
  *
  */
+//@Listeners(com.flipkart.utilities.TestListener.class)
 public class BaseClass {
 	//to create reference variable of ReadConfig Class to access variable declared in config.properties file through its methods....
 	public static ReadConfig config=new ReadConfig();
@@ -39,25 +41,24 @@ public class BaseClass {
 	public String IEDriverPath=System.getProperty("user.dir")+System.getProperty("File.pathSeparator")+config.getIEDriverPath();
 	//public String FFDriverPath=config.geckoDriverPath();
 	public String FFDriverPath=System.getProperty("user.dir")+System.getProperty("File.pathSeparator")+config.geckoDriverPath();
-	public static Logger logger;
-	
-	
 	public static Logger getLogger() {
 		
 		return Logger.getLogger(BaseClass.class);
 	}
 	
-	public static Logger getLogger(Class clz) {
-		
-		return Logger.getLogger(clz);
-	}
+	public static Logger logger = Logger.getLogger(BaseClass.class);
+	
+	
+	
+	
+
 	 	                                                     
 	//create public reference variable of WebDriver class
    public static WebDriver driver;	
    @Parameters("browser")
    @BeforeTest 
    public void setUp(String br) {
-	    logger=Logger.getLogger(BaseClass.class);
+	    //logger=Logger.getLogger(BaseClass.class);
 	    PropertyConfigurator.configure("log4j.properties");
 	   
 	   if (br.toLowerCase().equals("chrome")) {
